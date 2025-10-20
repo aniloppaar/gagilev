@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelDream - Туристическое агентство</title>
+    <link rel="stylesheet" href="stile.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">KirillTravel</h1>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#tours" class="transition">Туры</a></li>
+                        <li><a href="#hotels" class="transition">Отели</a></li>
+                        <li><a href="#reviews" class="transition">Отзывы</a></li>
+                        <li><a href="#contacts" class="transition">Контакты</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container text-center">
+            <h2 class="hero-title">Откройте мир с нами</h2>
+            <p class="hero-subtitle">Лучшие туры по доступным ценам</p>
+            <button class="cta-button">Найти тур</button>
+        </div>
+    </section>
+
+    <!-- Секция туров -->
+    <section id="tours" class="section">
+        <div class="container">
+            <h2 class="section-title">Популярные туры</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Карточка тура 1 -->
+                <div class="tour-card">
+                    <div class="card-image bg-blue-400"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Тур в Турцию</h3>
+                        <p class="card-description">5-звездочный отель с питанием "все включено"</p>
+                        <div class="card-footer">
+                            <span class="price">45 000 ₽</span>
+                            <button class="detail-button">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка тура 2 -->
+                <div class="tour-card">
+                    <div class="card-image bg-green-400"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Экскурсия по Европе</h3>
+                        <p class="card-description">Тур по 4 странам за 10 дней</p>
+                        <div class="card-footer">
+                            <span class="price">89 000 ₽</span>
+                            <button class="detail-button">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка тура 3 -->
+                <div class="tour-card">
+                    <div class="card-image bg-yellow-400"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Отдых в Сочи</h3>
+                        <p class="card-description">Комфортабельный отель у моря</p>
+                        <div class="card-footer">
+                            <span class="price">32 000 ₽</span>
+                            <button class="detail-button">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция отелей -->
+    <section id="hotels" class="hotels-section">
+        <div class="container">
+            <h2 class="section-title">Наши отели</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <!-- Карточка отеля 1 -->
+                <div class="hotel-card">
+                    <div class="hotel-image bg-blue-300"></div>
+                    <h3 class="hotel-name">Luxury Resort</h3>
+                    <p class="hotel-location">Анталия, Турция</p>
+                    <div class="hotel-footer">
+                        <span class="hotel-price">7 500 ₽/ночь</span>
+                        <span class="rating">★ 4.8</span>
+                    </div>
+                </div>
+
+                <!-- Карточка отеля 2 -->
+                <div class="hotel-card">
+                    <div class="hotel-image bg-green-300"></div>
+                    <h3 class="hotel-name">Mountain View</h3>
+                    <p class="hotel-location">Сочи, Россия</p>
+                    <div class="hotel-footer">
+                        <span class="hotel-price">5 200 ₽/ночь</span>
+                        <span class="rating">★ 4.6</span>
+                    </div>
+                </div>
+
+                <!-- Карточка отеля 3 -->
+                <div class="hotel-card">
+                    <div class="hotel-image bg-purple-300"></div>
+                    <h3 class="hotel-name">Sea Breeze</h3>
+                    <p class="hotel-location">Дубай, ОАЭ</p>
+                    <div class="hotel-footer">
+                        <span class="hotel-price">12 000 ₽/ночь</span>
+                        <span class="rating">★ 4.9</span>
+                    </div>
+                </div>
+
+                <!-- Карточка отеля 4 -->
+                <div class="hotel-card">
+                    <div class="hotel-image bg-red-300"></div>
+                    <h3 class="hotel-name">City Center</h3>
+                    <p class="hotel-location">Париж, Франция</p>
+                    <div class="hotel-footer">
+                        <span class="hotel-price">9 800 ₽/ночь</span>
+                        <span class="rating">★ 4.7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция отзывов -->
+    <section id="reviews" class="section">
+        <div class="container">
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Отзыв 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar"></div>
+                        <div>
+                            <h4 class="reviewer-name">Иванов Иван</h4>
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Отличный тур в Турцию! Все было организовано на высшем уровне. Особенно понравился отель и экскурсии."</p>
+                </div>
+
+                <!-- Отзыв 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar"></div>
+                        <div>
+                            <h4 class="reviewer-name">Аштаха Гаджи</h4>
+                            <div class="stars">
+                                ★★★★☆
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Хорошее соотношение цены и качества. Тур по Европе превзошел ожидания. Рекомендую!"</p>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar"></div>
+                        <div>
+                            <h4 class="reviewer-name">Акропенко Вадимильян</h4>
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Отдых в Сочи был великолепен! Спасибо за профессиональный подход и внимание к деталям."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма поиска туров -->
+    <section class="search-section">
+        <div class="container">
+            <h2 class="section-title text-white">Найдите свой идеальный тур</h2>
+            <div class="search-form-container">
+                <form class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Направление</label>
+                        <input type="text" class="form-input" placeholder="Куда летим?">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Дата вылета</label>
+                        <input type="date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ночей</label>
+                        <select class="form-select">
+                            <option>7 ночей</option>
+                            <option>10 ночей</option>
+                            <option>14 ночей</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="search-button">Найти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer id="contacts" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">KirillTravel</h3>
+                    <p class="footer-text">Ваш надежный партнер в мире путешествий</p>
+                </div>
+                <div>
+                    <h4 class="footer-subtitle">Контакты</h4>
+                    <p class="footer-text">+7 (999) 123-45-67</p>
+                    <p class="footer-text">kirilltravel.ru</p>
+                </div>
+                <div>
+                    <h4 class="footer-subtitle">Адрес</h4>
+                    <p class="footer-text">Сургут, ул. Гавкни, 667</p>
+                </div>
+                <div>
+                    <h4 class="footer-subtitle">Социальные сети</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">VK</a>
+                        <a href="#" class="footer-link">Telegram</a>
+                        <a href="#" class="footer-link">Stogram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider">
+                <p class="footer-text">&copy; 2025 KirillTravel. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простой скрипт для плавной прокрутки
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
