@@ -6,8 +6,8 @@ class Flight(models.Model):
     flight_time = models.TimeField(verbose_name='Время в пути')
 
     class Meta:
-        verbose_name = "Полет"
-        verbose_name_plural = "Полеты"
+        verbose_name = "Перелет"
+        verbose_name_plural = "Перелеты"
         ordering = ["date", "price"]
         indexes = [
             models.Index(fields=["date"]),
