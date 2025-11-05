@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../static/css/stile.css">
 </head>
 <body>
-    
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -20,48 +19,42 @@
                         <li><a href="#contacts" class="transition">Контакты</a></li>
                     </ul>
                 </nav>
-                <button class="mobile-menu-btn">☰</button>
             </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container text-center">
-            <h2 class="hero-title">Откройте мир с нами</h2>
-            <p class="hero-subtitle">Лучшие туры по доступным ценам</p>
-            <button class="cta-button">Найти тур</button>
-        </div>
-    </section>
 
-
-    <section id="tours" class="section">
+    {% block content %}
+    {% endblock %}
+    <footer id="contacts" class="footer">
         <div class="container">
-            <h2 class="section-title">Популярные туры</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                
-                <div class="tour-card">
-                    <div class="card-image"></div>
-                    <div class="card-content">
-                        <h3 class="card-title">Тур в Египет</h3>
-                        <p class="card-description">5-звездочный отель с питанием "все включено"</p>
-                        <div class="card-footer">
-                            <span class="price">139 999 ₽</span>
-                            <button class="detail-button">Подробнее</button>
-                        </div>
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">iTravel</h3>
+                    <p class="footer-text">Ваш надежный партнер в мире путешествий</p>
+                </div>
+                <div>
+                    <h4 class="footer-subtitle">Контакты</h4>
+                    <p class="footer-text">+7 (999) 123-45-67</p>
+                    <p class="footer-text">info@itravel.ru</p>
+                </div>
+                <div>
+                    <h4 class="footer-subtitle">Адрес</h4>
+                    <p class="footer-text">Сургут, ул. Примерная, 123</p>
+                </div>
+                <div>
+                    <h4 class="footer-subtitle">Социальные сети</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">VK</a>
+                        <a href="#" class="footer-link">Telegram</a>
+                        <a href="#" class="footer-link">Instagram</a>
                     </div>
                 </div>
-
-                
-                <div class="tour-card">
-                    <div class="card-image bg-green-400"></div>
-                    <div class="card-content">
-                        <h3 class="card-title">Экскурсия по Европе</h3>
-                        <p class="card-description">Тур по 3 странам за 10 дней</p>
-                        <div class="card-footer">
-                            <span class="price">200 000 ₽</span>
-                            <button class="detail-button">Подробнее</button>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="footer-divider">
+                <p class="footer-text">&copy; 2025 iTravel. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

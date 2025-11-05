@@ -18,18 +18,35 @@ class Flight(models.Model):
         return f"{self.date} - {self.price}"  
 
 class Hotel(models.Model):
+    STAR_RATING = [
+        (1, '1 звезда'),
+        (2, '2 звезды'),
+        (3, '3 звезды'),
+        (4, '4 звезды'),
+        (5, '5 звезд'),
+    ] 
     name = models.CharField(verbose_name='Название', max_length=100)
     place = models.TextField(verbose_name='Местоположение')
-    price = models.DecimalField(verbose_name='Цена', max_digits=10, decimal_places=2)  
-
+    star_rating = models.IntegerField( verbose_name='Количество звезд',choices=STAR_RATING,default=3)
+    
     class Meta:
         verbose_name = "Отель"
         verbose_name_plural = "Отели"
-        ordering = ["price"]
+        ordering = ["name"]
         indexes = [
             models.Index(fields=["place"]),
-            models.Index(fields=["price"])
+            models.Index(fields=["star_rating"]),
         ]
+    
+    def __str__(self):
+        return f"{self.name} ({self.star_rating}*)"
+
+class RoomType(models.Model):
+    ROOM_CATEGORIES = [
+        ('standard', 'Стандарт'),
+        ('comfort', 'Комфорт'),
+        ('business', 'Бизнес'),
+    ]
     
     def str(self):  
         return f"{self.name}"
@@ -37,7 +54,7 @@ class Hotel(models.Model):
 class Client(models.Model):
     name = models.CharField('Имя', max_length=25)
     last_name = models.CharField('Фамилия', max_length=25)
-    father_name = models.CharField('Отчество', max_length=25)
+    father_name = models.CharField('Отчество', max_length=25, null=True,blank=True)
     phone_number = models.CharField('Номер телефона', max_length=11)
     mail = models.EmailField('Почта', max_length=100) 
 
@@ -77,5 +94,3 @@ class Reviews(models.Model):
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
     
-    def str(self):  
-        return f"Отзыв от {self.client.last_name} на тур {self.tour.name}"
