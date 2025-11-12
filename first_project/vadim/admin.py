@@ -9,4 +9,5 @@ admin.site.register(Reviews)
 admin.site.register(Hotel)
 admin.site.register(Client)
 admin.site.register(Tour)
+admin.site.register(RoomClass)
 
