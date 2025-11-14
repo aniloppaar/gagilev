@@ -37,7 +37,7 @@ class RoomClass(models.Model):
         verbose_name_plural = "Классы номеров"
     
     def __str__(self):  
-        return f"{self.name}"
+        return f"{self.get_category_display()} - {self.price}₽"
 
 class Hotel(models.Model):
     name = models.CharField(verbose_name='Название', max_length=100)

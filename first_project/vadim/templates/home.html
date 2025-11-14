@@ -1,0 +1,103 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <section class="hero">
+        <div class="container text-center">
+            <h2 class="hero-title">Откройте мир с нами</h2>
+            <p class="hero-subtitle">Лучшие туры по доступным ценам</p>
+            <a href="{% url 'home' %}" class="cta-button">Найти тур</a>
+        </div>
+    </section>
+
+    <section id="tours" class="section">
+        <div class="container">
+            <h2 class="section-title">Популярные туры</h2>
+            <div class="grid">
+                {% for tour in tours %}
+                <div class="tour-card">
+                    <div class="card-image bg-blue-400"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">{{ tour.name }}</h3>
+                        <p class="card-description">Отель: {{ tour.hotel.name }}</p>
+                        <p class="card-description">Местоположение: {{ tour.hotel.place }}</p>
+                        <div class="card-footer">
+                            <span class="price">{{ tour.price }} ₽</span>
+                            <a href="{% url 'home' %}" class="detail-button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p>Туры временно недоступны</p>
+                {% endfor %}
+    </section>
+
+    <!-- Hotels Section -->
+    <section id="hotels" class="section">
+        <div class="container">
+            <h2 class="section-title">Наши отели</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                {% for hotel in hotels %}
+                <div class="hotel-card">
+                    <div class="hotel-image bg-blue-400"></div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-name">{{ hotel.name }}</h3>
+                        <p class="hotel-location">{{ hotel.place }}</p>
+                        <p class="hotel-category">Категория: {{ hotel.room_class.category }}</p>
+                        <div class="hotel-footer">
+                            <span class="hotel-price">{{ hotel.room_class.price }} ₽/ночь</span>
+                            <button class="book-button">Забронировать</button>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p>Отели временно недоступны</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="section">
+        <div class="container">
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                {% for review in reviews %}
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar"></div>
+                        <div>
+                            <h4 class="reviewer-name">{{ review.client.last_name }} {{ review.client.name }}</h4>
+                            <div class="rating">
+                                Рейтинг: {{ review.rating }}/5
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"{{ review.text }}"</p>
+                </div>
+                {% empty %}
+                <p>Отзывов пока нет</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="container">
+            <h2 class="section-title text-white">Найдите свой идеальный тур</h2>
+            <div class="search-form-container">
+                <form class="form-grid" method="get" action="{% url 'home' %}">
+                    <div class="form-group">
+                        <label class="form-label">Направление</label>
+                        <input type="text" name="q" class="form-input" placeholder="Куда летим?">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Дата вылета</label>
+                        <input type="date" name="date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="search-button">Найти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

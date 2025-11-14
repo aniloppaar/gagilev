@@ -31,7 +31,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
+    padding: 20px 0;
 }
 
 .logo {
@@ -121,7 +121,7 @@ body {
     grid-template-columns: 1fr;
 }
 
-/* стили для компактных карточек туров */
+
 .tour-card {
     background: white;
     border-radius: 12px;
@@ -197,7 +197,7 @@ body {
     background-color: #1d4ed8;
 }
 
-/* Горизонтальная сетка для туров */
+
 #tours .grid {
     display: grid;
     gap: 20px;
@@ -243,7 +243,7 @@ body {
     color: #2563eb;
 }
 
-/* Адаптивность */
+
 @media (min-width: 768px) {
     #tours .grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -272,7 +272,7 @@ body {
     }
 }
 
-/* Дополнительные классы для цветов карточек */
+
 .bg-blue-400 { background-color: #000000; }
 .bg-green-400 { background-color: #0051ff; }
 .bg-yellow-400 { background-color: #000000; }
