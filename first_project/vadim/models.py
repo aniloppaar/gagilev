@@ -42,7 +42,8 @@ class RoomClass(models.Model):
 class Hotel(models.Model):
     name = models.CharField(verbose_name='Название', max_length=100)
     place = models.TextField(verbose_name='Местоположение')
-    room_class = models.ForeignKey( RoomClass, on_delete=models.CASCADE, verbose_name='Класс Номера',related_name='hotels' )  
+    room_class = models.ForeignKey( RoomClass, on_delete=models.CASCADE, verbose_name='Класс Номера',related_name='hotels' )
+    hotel_url = models.URLField(verbose_name="Отель", blank=True, null=True)  
     
     class Meta:
         verbose_name = "Отель"
@@ -79,7 +80,8 @@ class Tour(models.Model):
     name = models.CharField(verbose_name='Название тура', max_length=100) 
     price = models.DecimalField(verbose_name='Цена', max_digits=10, decimal_places=2)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, verbose_name='Отель')  
-    flight = models.ForeignKey(Flight, on_delete=models.CASCADE, verbose_name='Перелет')  
+    flight = models.ForeignKey(Flight, on_delete=models.CASCADE, verbose_name='Перелет')
+    tour_url = models.URLField(verbose_name="Тур", blank=True, null=True)  
 
     class Meta:
         verbose_name = "Тур"
