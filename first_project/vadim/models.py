@@ -2,13 +2,12 @@ from django.db import models
 
 class Flight(models.Model):
     date = models.DateField(verbose_name='Дата')
-    price = models.DecimalField(verbose_name='Цена', max_digits=10, decimal_places=2)  
     flight_time = models.TimeField(verbose_name='Время в пути')
 
     class Meta:
         verbose_name = "Перелет"
         verbose_name_plural = "Перелеты"
-        ordering = ["date", "price"]
+        ordering = ["date"]
         indexes = [
             models.Index(fields=["date"]),
             models.Index(fields=["flight_time"])
