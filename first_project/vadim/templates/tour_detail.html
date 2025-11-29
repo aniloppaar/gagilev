@@ -1,0 +1,74 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="tour-detail">
+        <div class="tour-header">
+            <h1>{{ tour.name }}</h1>
+            <div class="tour-price">{{ tour.price }} ₽</div>
+        </div>
+        
+        <div class="tour-content">
+            <div class="tour-info">
+                <h3>Информация о туре</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Отель:</strong> {{ tour.hotel.name }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Местоположение:</strong> {{ tour.hotel.place }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Дата вылета:</strong> {{ tour.flight.date }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Время в пути:</strong> {{ tour.flight.flight_time }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Категория номера:</strong> {{ tour.hotel.room_class.get_category_display }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Цена номера:</strong> {{ tour.hotel.room_class.price }} ₽/ночь
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-section">
+                <h3>Отзывы о туре</h3>
+                {% if reviews %}
+                <div class="reviews-grid">
+                    {% for review in reviews %}
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="avatar">
+                                {{ review.client.last_name|first }}{{ review.client.name|first }}
+                            </div>
+                            <div>
+                                <h4 class="reviewer-name">{{ review.client.last_name }} {{ review.client.name }}</h4>
+                                <div class="rating">
+                                    Рейтинг: {{ review.rating }}/5
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"{{ review.text }}"</p>
+                        <div class="review-date">{{ review.created_at|date:"d.m.Y" }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="no-reviews">
+                    <p>Пока нет отзывов об этом туре</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="tour-actions">
+            <a href="{% url 'tours' %}" class="back-button">← Назад к турам</a>
+            {% if tour.tour_url %}
+                <a href="{{ tour.tour_url }}" class="book-button" target="_blank">Забронировать тур</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

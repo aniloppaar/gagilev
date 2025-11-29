@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="hotel-detail">
+        <div class="hotel-header">
+            <h1>{{ hotel.name }}</h1>
+            <div class="hotel-price">{{ hotel.room_class.price }} ₽/ночь</div>
+        </div>
+        
+        <div class="hotel-content">
+            <div class="hotel-info">
+                <h3>Информация об отеле</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Местоположение:</strong> {{ hotel.place }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Категория номера:</strong> {{ hotel.room_class.get_category_display }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Цена за ночь:</strong> {{ hotel.room_class.price }} ₽
+                    </div>
+                </div>
+            </div>
+
+            <div class="tours-section">
+                <h3>Туры в этом отеле</h3>
+                {% if tours %}
+                <div class="tours-grid">
+                    {% for tour in tours %}
+                    <div class="tour-card-small">
+                        <h4 class="tour-title">{{ tour.name }}</h4>
+                        <p class="tour-info"><strong>Дата вылета:</strong> {{ tour.flight.date }}</p>
+                        <p class="tour-info"><strong>Цена тура:</strong> {{ tour.price }} ₽</p>
+                        <a href="{% url 'tour_detail' tour.id %}" class="detail-button-small">Подробнее о туре</a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="no-tours">
+                    <p>Пока нет туров в этом отеле</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="hotel-actions">
+            <a href="{% url 'hotels' %}" class="back-button">← Назад к отелям</a>
+            {% if hotel.hotel_url %}
+                <a href="{{ hotel.hotel_url }}" class="book-button" target="_blank">Забронировать отель</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

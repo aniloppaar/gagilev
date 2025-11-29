@@ -3,30 +3,29 @@
 {% block content %}
 <div class="container">
     <div class="page-header">
-        <h1>Все туры</h1>
-        <p>Найдите идеальный тур для вашего путешествия</p>
+        <h1>Все отели</h1>
+        <p>Выберите идеальный отель для вашего отдыха</p>
     </div>
-
 
     <div class="search-section">
         <div class="search-form-container">
-            <form method="get" action="{% url 'tour_list' %}" class="search-form">
+            <form method="get" action="{% url 'hotels' %}" class="search-form">
                 <div class="search-input-group">
                     <input type="text" 
                            name="q" 
                            class="search-input" 
-                           placeholder="Поиск по названию тура или отеля..."
+                           placeholder="Поиск по названию отеля или месту..."
                            value="{{ search_query }}"
                            autocomplete="off">
                     <button type="submit" class="search-submit-button">
                         <span>🔍</span>
-                        Найти
+                        Найти отели
                     </button>
                 </div>
                 {% if search_query %}
                 <div class="search-results-info">
-                    <p>Найдено туров: <strong>{{ tours.count }}</strong> по запросу: "<strong>{{ search_query }}</strong>"</p>
-                    <a href="{% url 'tour_list' %}" class="clear-search">Показать все туры</a>
+                    <p>Найдено отелей: <strong>{{ hotels.count }}</strong> по запросу: "<strong>{{ search_query }}</strong>"</p>
+                    <a href="{% url 'hotels' %}" class="clear-search">Показать все отели</a>
                 </div>
                 {% endif %}
             </form>
@@ -34,29 +33,27 @@
     </div>
 
     <div class="section">
-        {% if tours %}
-        <div class="grid">
-            {% for tour in tours %}
-            <div class="tour-card">
-                <div class="card-image">
-                    {% if tour.tour_url %}
-                        <img src="{{ tour.tour_url }}" alt="{{ tour.name }}" class="tour-img">
+        {% if hotels %}
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            {% for hotel in hotels %}
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    {% if hotel.hotel_url %}
+                        <img src="{{ hotel.hotel_url }}" alt="{{ hotel.name }}" class="hotel-img">
                     {% else %}
-                        <div class="image-placeholder bg-blue-400">
-                            <span>🌴 {{ tour.name }}</span>
+                        <div class="image-placeholder bg-green-400">
+                            <span>🏨 {{ hotel.name }}</span>
                         </div>
                     {% endif %}
-                    <div class="price-badge">{{ tour.price }} ₽</div>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">{{ tour.name }}</h3>
-                    <p class="card-description"><strong>Отель:</strong> {{ tour.hotel.name }}</p>
-                    <p class="card-description"><strong>Местоположение:</strong> {{ tour.hotel.place }}</p>
-                    <p class="card-description"><strong>Дата вылета:</strong> {{ tour.flight.date }}</p>
-                    <p class="card-description"><strong>Время в пути:</strong> {{ tour.flight.flight_time }}</p>
-                    <div class="card-footer">
-                        <span class="price">{{ tour.price }} ₽</span>
-                        <a href="{% url 'tour_detail' tour.id %}" class="detail-button">Подробнее</a>
+                <div class="hotel-content">
+                    <h3 class="hotel-name">{{ hotel.name }}</h3>
+                    <p class="hotel-location">{{ hotel.place }}</p>
+                    <p class="hotel-category">Категория: {{ hotel.room_class.get_category_display }}</p>
+                    <p class="hotel-category">Цена номера: {{ hotel.room_class.price }} ₽</p>
+                    <div class="hotel-footer">
+                        <span class="hotel-price">{{ hotel.room_class.price }} ₽/ночь</span>
+                        <a href="{% url 'hotel_detail' hotel.id %}" class="book-button">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -64,10 +61,10 @@
         </div>
         {% else %}
         <div class="empty-state">
-            <h3>{% if is_search %}Туры не найдены{% else %}Туры временно недоступны{% endif %}</h3>
+            <h3>{% if is_search %}Отели не найдены{% else %}Отели временно недоступны{% endif %}</h3>
             <p>
                 {% if is_search %}
-                Попробуйте изменить поисковый запрос или <a href="{% url 'tour_list' %}">посмотреть все туры</a>
+                Попробуйте изменить поисковый запрос или <a href="{% url 'hotels' %}">посмотреть все отели</a>
                 {% else %}
                 Пожалуйста, проверьте позже
                 {% endif %}

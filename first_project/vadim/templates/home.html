@@ -5,7 +5,7 @@
         <div class="container text-center">
             <h2 class="hero-title">Откройте мир с нами</h2>
             <p class="hero-subtitle">Лучшие туры по доступным ценам</p>
-            <a href="{% url 'tour_list' %}" class="cta-button">Найти тур</a>
+            <a href="{% url 'tours' %}" class="cta-button">Найти тур</a>
         </div>
     </section>
 
@@ -13,7 +13,7 @@
         <div class="container">
             <h2 class="section-title text-white">Найдите свой идеальный тур</h2>
             <div class="search-form-container">
-                <form method="get" action="{% url 'tour_list' %}" class="search-form">
+                <form method="get" action="{% url 'tours' %}" class="search-form">
                     <div class="search-input-group">
                         <input type="text" 
                                name="q" 
@@ -27,7 +27,7 @@
                     </div>
                 </form>
                 <div class="search-links">
-                    <a href="{% url 'hotel_list' %}" class="search-link">Искать отели →</a>
+                    <a href="{% url 'hotels' %}" class="search-link">Искать отели →</a>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 {% endfor %}
             </div>
             <div class="text-center mt-4">
-                <a href="{% url 'tour_list' %}" class="cta-button">Смотреть все туры</a>
+                <a href="{% url 'tours' %}" class="cta-button">Смотреть все туры</a>
             </div>
         </div>
     </section>
@@ -106,7 +106,7 @@
                 {% endfor %}
             </div>
             <div class="text-center mt-4">
-                <a href="{% url 'hotel_list' %}" class="cta-button">Смотреть все отели</a>
+                <a href="{% url 'hotels' %}" class="cta-button">Смотреть все отели</a>
             </div>
         </div>
     </section>

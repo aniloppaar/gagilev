@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iTravel - Туристическое агентство</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header class="header">
@@ -13,9 +14,8 @@
                 <h1 class="logo"><a href="{% url 'home' %}" style="color: white; text-decoration: none;">iTravel</a></h1>
                 <nav class="nav">
                     <ul>
-                        <li><a href="{% url 'tour_list' %}" class="transition">Туры</a></li>
-                        <li><a href="{% url 'hotel_list' %}" class="transition">Отели</a></li>
-                        <li><a href="#reviews" class="transition">Отзывы</a></li>
+                        <li><a href="{% url 'tours' %}" class="transition">Туры</a></li>
+                        <li><a href="{% url 'hotels' %}" class="transition">Отели</a></li>
                         <li><a href="#contacts" class="transition">Контакты</a></li>
                     </ul>
                 </nav>
