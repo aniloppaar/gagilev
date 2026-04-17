@@ -18,7 +18,6 @@
                            value="{{ search_query }}"
                            autocomplete="off">
                     <button type="submit" class="search-submit-button">
-                        <span>🔍</span>
                         Найти
                     </button>
                 </div>
@@ -72,7 +71,7 @@
                         <img src="{{ tour.tour_url }}" alt="{{ tour.name }}" class="tour-img">
                     {% else %}
                         <div class="image-placeholder bg-blue-400">
-                            <span>🌴 {{ tour.name }}</span>
+                            <span> {{ tour.name }}</span>
                         </div>
                     {% endif %}
                     <div class="price-badge">{{ tour.price }} ₽</div>
@@ -106,3 +105,20 @@
     </div>
 </div>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

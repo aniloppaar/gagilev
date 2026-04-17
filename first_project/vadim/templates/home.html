@@ -21,7 +21,6 @@
                                placeholder="Введите название тура или отеля..."
                                autocomplete="off">
                         <button type="submit" class="search-submit-button">
-                            <span>🔍</span>
                             Найти туры
                         </button>
                     </div>
@@ -44,7 +43,7 @@
                             <img src="{{ tour.tour_url }}" alt="{{ tour.name }}" class="tour-img">
                         {% else %}
                             <div class="image-placeholder bg-blue-400">
-                                <span>🌴 {{ tour.name }}</span>
+                                <span> {{ tour.name }}</span>
                             </div>
                         {% endif %}
                         <div class="price-badge">{{ tour.price }} ₽</div>
@@ -84,7 +83,7 @@
                             <img src="{{ hotel.hotel_url }}" alt="{{ hotel.name }}" class="hotel-img">
                         {% else %}
                             <div class="image-placeholder bg-green-400">
-                                <span>🏨 {{ hotel.name }}</span>
+                                <span> {{ hotel.name }}</span>
                             </div>
                         {% endif %}
                     </div>

@@ -19,7 +19,7 @@
                         <strong>Категория номера:</strong> {{ hotel.room_class.get_category_display }}
                     </div>
                     <div class="info-item">
-                        <strong>Цена за ночь:</strong> {{ hotel.room_class.price }} ₽
+                        <strong>Цена за ночь:</strong> <span class="hotel-price">{{ hotel.room_class.price }} ₽</span>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     <div class="tour-card-small">
                         <h4 class="tour-title">{{ tour.name }}</h4>
                         <p class="tour-info"><strong>Дата вылета:</strong> {{ tour.flight.date }}</p>
-                        <p class="tour-info"><strong>Цена тура:</strong> {{ tour.price }} ₽</p>
+                        <p class="tour-info"><strong>Цена тура:</strong> <span class="tour-price">{{ tour.price }} ₽</span></p>
                         <a href="{% url 'tour_detail' tour.id %}" class="detail-button-small">Подробнее о туре</a>
                     </div>
                     {% endfor %}
@@ -54,3 +54,6 @@
     </div>
 </div>
 {% endblock %}
+
+
+
